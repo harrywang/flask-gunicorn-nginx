@@ -15,8 +15,10 @@ and add code in configure.rb to create those folders (make sure the attributes m
 8. create a few files, myapp.py (there cannot be hyphen in file name otherwise gunicorn error) and wsgi.py using templates and test gunicorn
 9. Upstart script: import: when working with Test Kitchen locally - there is no user named "ubuntu" instead, please use user vagrant: `setuid vagrant`
 10. Make sure the socket file is in /tmp folder for permission reason in both myapp-gunicorn.conf.erb and myapp-nginx.conf.erb
-11. `kitchen converge` >> `kitchen login` >> `sudo start myapp` >> `sudo service nginx restart` >> `curl http://0.0.0.0` you should be able to see Hello There message.
-12. if ever need to use AWS OpsWorks, `berks package` and upload the generated tarball to S3
+11. add deploy.rb to start the services
+12. add `network: - ["forwarded_port", {guest: 80, host: 8888}]` for port forwarding.
+13. `kitchen converge` >> open a browser locally, and enter http://127.0.0.1:8888, you should be able to see Hello There message.
+14. if ever need to use AWS OpsWorks, `berks package` and upload the generated tarball to S3
 
 TODO:
 
