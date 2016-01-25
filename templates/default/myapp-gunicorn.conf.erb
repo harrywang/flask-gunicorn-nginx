@@ -1,0 +1,11 @@
+description "Gunicorn application server running myapp"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+setuid vagrant
+setgid www-data
+
+chdir <%= node['flask-gunicorn-nginx']['project_dir'] %>
+exec gunicorn --workers 3 --bind unix:/tmp/myapp.sock -m 007 wsgi

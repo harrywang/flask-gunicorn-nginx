@@ -1,0 +1,9 @@
+DEPENDENCIES
+  flask-gunicorn-nginx
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.9.2)
+  flask-gunicorn-nginx (0.1.0)
+    apt (~> 2.9.2)
