@@ -4,6 +4,6 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/tmp/myapp.sock;
+        proxy_pass http://unix:<%= node['flask-gunicorn-nginx']['gunicorn_socket'] %>;
     }
 }

@@ -8,4 +8,4 @@ setuid vagrant
 setgid www-data
 
 chdir <%= node['flask-gunicorn-nginx']['project_dir'] %>
-exec gunicorn --workers 3 --bind unix:/tmp/myapp.sock -m 007 wsgi
+exec gunicorn --workers 3 --bind unix:<%= node['flask-gunicorn-nginx']['gunicorn_socket'] %> -m 007 wsgi
