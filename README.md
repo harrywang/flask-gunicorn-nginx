@@ -2,6 +2,7 @@ This the Chef cookbook for the following tutorial:
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
 
 The following are my notes:
+
 1. `kitchen init`, edit .kitchen.yml to remove `- name: centos-7.1`
 2. add metadata.rb, `name 'flask-gunicorn-nginx'` specify the cookbook's name, which is used in .kitchen.yml     `run_list: - recipe[flask-gunicorn-nginx::configure]`
 3. add external cookbook in metatdata.rb `depends 'apt', '~> 2.9.2'` and add Berksfile
@@ -17,5 +18,6 @@ and add code in configure.rb to create those folders (make sure the attributes m
 11. `kitchen converge` >> `kitchen login` >> `sudo start myapp` >> `sudo service nginx restart` >> `curl http://0.0.0.0` you should be able to see Hello There message.
 
 TODO:
+
 1. figure out how to use the `default['flask-gunicorn-nginx']['gunicorn_socket'] = '/tmp/myapp.sock'` attibute in the templates
 2. try to remove the Berksfile and run apt directly
