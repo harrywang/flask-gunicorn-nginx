@@ -1,7 +1,7 @@
-This the Chef cookbook for the following tutorial:
+This is a chef cookbook for the following tutorial:
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
 
-The following are my notes:
+My notes:
 
 1. `kitchen init`, edit .kitchen.yml to remove `- name: centos-7.1`
 2. add metadata.rb, `name 'flask-gunicorn-nginx'` specify the cookbook's name, which is used in .kitchen.yml     `run_list: - recipe[flask-gunicorn-nginx::configure]`
